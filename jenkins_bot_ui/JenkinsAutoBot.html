@@ -1,0 +1,134 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
+        <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.3/js/msal.js"></script>
+        <link rel="stylesheet" type="text/css" href="JenkinsAutobot.css">
+        <script src="jenkinsautobot.js"></script>
+
+
+    </head>
+    <body>
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-item nav-link" href="#" onclick="loadForm('home')">Home <span class="sr-only">(current)</span></a>
+                  <a id= "chatMenu" class="nav-item nav-link" href="#" style= "display: none" onclick="loadForm('chat')">Chat Interaction</a>
+                  
+                </div>
+                <div id="regLoginMenu" class="nav navbar-nav ml-auto">
+                  <a class="nav-item nav-link " href="#" onclick="signIn()"><span class="fa fa-sign-in"></span> Login</a>
+                </div>
+
+                <div id="displayLoginUsernameMenu" class="nav navbar-nav ml-auto" style="display:none">
+                  <a class="nav-item nav-link" href="#">User name : <span id="displayLoginUsername"></span></a>
+                  <a class="nav-item nav-link " href="#" onclick="onLogout()"><span class="fa fa-sign-out"></span> Logout</a>
+                </div>
+              </div>
+            </nav>    
+        </div>
+
+        <div class="card bg-dark text-white">
+          <img class="card-img" src="Leadspace1.jpg" alt="Leadspace card image">
+          <div class="card-img-overlay">
+            <h1 class="card-title">Autobots</h1>
+            <h4><p class="card-text">Smart interactions with Jenkins</p></h4>
+          </div>
+        </div>
+
+
+        <div id="home" style="padding: 20px 20px 20px 20px">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">About</h4>
+                <p class="card-text">Autobot is an automation bot that provides a rich and secure access to Jenkins 
+                software. This infrastructure allows developer and integrators perform Jenkins operations without the need 
+                for multiple clicks on the Jenkins website. </p>
+                   <p class="card-text">Some Jenkins' jobs takes a lot of time to run hence user has to wait for long time and check their status time to time. 
+                     Meanwhile if a user managing multiple Jenkins jobs then in order to check status of each job, he needs to navigate multiple pages with multiple clicks. This process is time consuming. Our solution tries to solve this problem by providing a chat/Web based single screen dashboard with query functionality. User can also trigger a regression suite for build validation.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Features</h4>
+                <p class="card-text">
+                  <ul>
+                    <li>Retrieve build status of Jenkins job(s).</li>
+                    <li>Retrieval of failure/success details of a Jenkins job.</li>
+                    <li>Retrieval of failure/success details of a Jenkins job.</li>
+                    <li>Get the details of the current running job.</li>
+                    <li>Disable/enable a job(s).</li>
+                    <li>Stop a Jenkins job(s).</li>
+                    <li>Automate the invocation of regression suite during deployment.</li>
+                    <li>Analytics for a Jenkins job based on its attributes.</li>
+                    </ul>
+                 </p>
+              </div>
+            </div>
+          </div>
+            <div class="col-sm-4">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">How to use</h4>
+                    <p class="card-text">Autobot site has an embedded chat application which is easy to use. Prerequisites
+                      are to have a Jenkins account. The chat application will be the means by which the user can trigger jobs and get
+                      information required.           
+                    </p>
+                      <p class="card-text">Users can choose from the set of jobs provied under Chat Integration menu. The environment for
+                        running the job will also be required by the application to narrow down the set and give a more accurate result.
+                      </p>
+                  </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+            <div id="chat" style="padding: 20px 20px 20px 20px; display: none">
+                <div class="row">
+                    <div class="col-sm-3">  
+                        <div class="card">
+                          <div class="card-body">
+                            <h5 class="card-title ">Information</h5>
+                            <p class="card-text">Jobs can be triggered on the below 3 environments</p>
+                              <p class="card-text"><ul>
+                                    <li>Dev</li>
+                                    <li>QA</li>
+                                    <li>Int</li>
+                                    </ul></p>
+                          </div>                          
+                        </div>
+                    </div>
+                    <div class="col-sm-5">  
+                        <div class="card">
+                          <div class="card-body">
+                            <h5 class="card-title">Jenkins Query Helper</h5>
+                            <p class="card-text">Below are the set of trigger queries which can be used to trigger jobs via the chatbot</p>
+                          </div>
+                          <ul id="jobsUL" class="list-group list-group-flush ScrollStyle">
+                            
+                          </ul>
+                        </div>
+                    </div>
+                    <div class="ml-auto">   
+                        <iframe  allow="microphone;"
+                                 width="350"
+                                 height="380"
+                                 src="https://console.dialogflow.com/api-client/demo/embedded/jenkins_bot">
+                        </iframe> 
+                    </div>
+                </div>
+            </div>
+            
+        </body>
+        </html>

@@ -1,0 +1,44 @@
+
+
+/* Container holding the image and the text */
+.container1 {
+  position: relative;
+}
+
+/* Bottom right text */
+.text-block {
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  font: "Helvetica Neue";
+    font-size: 20px;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.navbar-nav {
+      flex-direction: row;
+    }
+    
+    .nav-link {
+      padding-right: .5rem !important;
+      padding-left: .5rem !important;
+    }
+    
+    /* Fixes dropdown menus placed on the right side */
+    .ml-auto .dropdown-menu {
+      left: auto !important;
+      right: 0px;
+    }
+
+.ml-chat {
+      left: auto !important;
+      right: 0px;
+    }
+
+.ScrollStyle
+{
+    max-height: 200px;
+    overflow-y: scroll;
+}

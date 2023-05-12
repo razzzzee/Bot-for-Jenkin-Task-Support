@@ -1,0 +1,45 @@
+{
+   "queryResult":{
+      "intent":{
+         "name":"projects/jenkinsbot-b0db7/agent/intents/23758b61-9330-4fc4-9a3b-22c93f9d8448",
+         "displayName":"trigger_build"
+      },
+      "intentDetectionConfidence":1.0,
+      "outputContexts":[
+         {
+            "name":"projects/jenkinsbot-b0db7/agent/sessions/efafd1f5-3653-1e0f-35b9-89d86dbf08eb/contexts/greet",
+            "parameters":{
+               "job_name":"Master_HealthCheck",
+               "environment.original":"qa",
+               "job_name.original":"master health check",
+               "environment":"qa"
+            }
+         },
+         {
+            "lifespanCount":1,
+            "name":"projects/jenkinsbot-b0db7/agent/sessions/efafd1f5-3653-1e0f-35b9-89d86dbf08eb/contexts/trigger_build_action",
+            "parameters":{
+               "job_name":"Master_HealthCheck",
+               "environment.original":"qa",
+               "job_name.original":"master health check",
+               "environment":"qa"
+            }
+         }
+      ],
+      "parameters":{
+         "job_name":"Master_HealthCheck",
+         "environment":"qa"
+      },
+      "languageCode":"en",
+      "queryText":"qa",
+      "allRequiredParamsPresent":true,
+      "action":"trigger_build"
+   },
+   "session":"projects/jenkinsbot-b0db7/agent/sessions/efafd1f5-3653-1e0f-35b9-89d86dbf08eb",
+   "originalDetectIntentRequest":{
+      "payload":{
+
+      }
+   },
+   "responseId":"cd52102d-f176-44af-85ce-34a91c0cc2b9"
+}

@@ -1,0 +1,29 @@
+{
+  "host_config": {
+    "jenkins_endpoint": "http://jenkins-master.westindia.cloudapp.azure.com:8080/",
+    "username": "<yourusername>",
+    "password": "<yourpassword>"
+  },
+  "env_job_mapping":{
+    "Dev": {
+      "CompilePublish_Master": "job/CompilePublish_Master",
+      "Deploy" : "job/Deploy_Dev",
+      "Build_Promoter": "job/Deploy_Dev"
+    },
+    "QA": {
+      "Deploy" : "job/Deploy_QA",
+      "Build_Promoter": "job/PromoteGreenBuildRepo"
+    },
+    "Int": {
+      "Deploy" : "job/Deploy_Int",
+      "Build_Promoter" : "job/Deploy_Int"
+    },
+    "Deploy_Dev" : "job/Deploy_Dev",
+    "PromoteGreenBuildRepo" : "job/PromoteGreenBuildRepo",
+    "Deploy_QA" : "job/Deploy_Dev",
+    "Deploy_Int" : "job/Deploy_Int",
+    "Master_HealthCheck" : "job/Master_HealthCheck",
+    "User_TestSuite": "job/User_TestSuite",
+    "Automation_TestSuite": "job/Automation_TestSuite"
+  }
+}

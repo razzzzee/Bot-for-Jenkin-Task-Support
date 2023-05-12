@@ -1,0 +1,58 @@
+{
+  "responseId": "c45a7482-07af-405a-81d3-336ab655dce9",
+  "queryResult": {
+    "queryText": "qa",
+    "action": "build_promotion",
+    "parameters": {
+      "dst_env": "qa",
+      "src_env": "",
+      "changeset": ""
+    },
+    "allRequiredParamsPresent": true,
+    "fulfillmentText": "Promoting build on qa.",
+    "fulfillmentMessages": [
+      {
+        "text": {
+          "text": [
+            "Promoting build on qa."
+          ]
+        }
+      }
+    ],
+    "outputContexts": [
+      {
+        "name": "projects/sessions/efafd1f5-3653-1e0f-35b9-89d86dbf08eb/contexts/build_promote",
+        "lifespanCount": 1,
+        "parameters": {
+          "dst_env.original": "qa",
+          "src_env": "",
+          "dst_env": "qa",
+          "changeset.original": "",
+          "src_env.original": "",
+          "changeset": ""
+        }
+      },
+      {
+        "name": "projects/sessions/efafd1f5-3653-1e0f-35b9-89d86dbf08eb/contexts/greet",
+        "parameters": {
+          "dst_env.original": "qa",
+          "src_env": "",
+          "dst_env": "qa",
+          "changeset.original": "",
+          "src_env.original": "",
+          "changeset": ""
+        }
+      }
+    ],
+    "intent": {
+      "name": "projects/intents/e5a74ab9-24e7-411e-9202-aa07eab80177",
+      "displayName": "build_promote"
+    },
+    "intentDetectionConfidence": 1,
+    "languageCode": "en"
+  },
+  "originalDetectIntentRequest": {
+    "payload": {}
+  },
+  "session": "projects/sessions/efafd1f5-3653-1e0f-35b9-89d86dbf08eb"
+}
